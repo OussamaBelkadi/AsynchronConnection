@@ -1,9 +1,7 @@
 package com.example.tourereservation.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.tourereservation.model.Region;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -15,4 +13,6 @@ public class Reservation {
     private int id;
     private String ville;
     private int regionId;
-}
+    @Transient
+    private Region region;
+ }

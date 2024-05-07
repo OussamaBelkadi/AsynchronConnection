@@ -21,6 +21,8 @@ public class RegionController {
     public List<Region> listRegions(){
         return regionRepository.findAll();
     }
+
+
     @GetMapping("/regions/{id}")
     public Region regionById(@PathVariable int id){
         return  regionRepository.findById(id).get();

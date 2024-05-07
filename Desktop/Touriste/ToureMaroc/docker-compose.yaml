@@ -1,0 +1,24 @@
+services:
+  os-tours-discovery-service:
+    build: ./discovery-service
+    container_name: Tours.discovery-service
+    ports:
+      - '8761:8761'
+    expose:
+      - '8761'
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 10s
+
+  os-tours-config-server:
+    build: ./config-service
+    container_name: Tours.config-server
+    ports:
+      - '9999:9999'
+    expose:
+      - '9999'
+    environment:
+      DISCOVERY_SERVICE_URL: 'http://Tours.discovery-service:8761/eureka'
+    depends_on:
+      os-tours-discovery-service:
+        condition: service_healthy

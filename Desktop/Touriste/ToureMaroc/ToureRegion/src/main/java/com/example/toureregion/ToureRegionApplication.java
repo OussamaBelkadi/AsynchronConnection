@@ -1,15 +1,19 @@
 package com.example.toureregion;
 
+import com.example.toureregion.config.ConfigClient;
 import com.example.toureregion.entities.Region;
 import com.example.toureregion.repositories.RegionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
+import java.io.ObjectInputFilter;
 import java.util.stream.Stream;
 
 @SpringBootApplication
+@EnableConfigurationProperties(ConfigClient.class)
 public class ToureRegionApplication {
 
     public static void main(String[] args) {
