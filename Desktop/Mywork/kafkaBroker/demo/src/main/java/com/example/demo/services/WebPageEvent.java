@@ -20,7 +20,8 @@ public class WebPageEvent {
     }
 
     @Bean
-    public Supplier<PageEvent> pageEventSupplier(){
-        return ()->new PageEvent("os","U1",new Date());
+    public Supplier<PageEvent> pageEventSupplier() {
+        return () -> new PageEvent("os", "U1", new Date());
     }
+
 }
